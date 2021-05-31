@@ -86,7 +86,7 @@ return require("packer").startup(function()
 
     use "windwp/nvim-ts-autotag"
 
-    -- Tabs, as understood by any other editor. 
+    -- Tabs, as understood by any other editor.
     use {
         'romgrk/barbar.nvim',
         requires = 'kyazdani42/nvim-web-devicons'
