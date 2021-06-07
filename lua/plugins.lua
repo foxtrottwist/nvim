@@ -65,7 +65,11 @@ return require("packer").startup(function()
         requires = 'kyazdani42/nvim-web-devicons'
     }
 
-    use 'phaazon/hop.nvim'
+    use {
+        'phaazon/hop.nvim',
+        as = 'hop',
+        config = "require('hop').setup{}"
+    }
 
     -- Session Management
     use 'rmagatti/auto-session'
