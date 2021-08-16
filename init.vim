@@ -1,60 +1,4 @@
-lua require("plugins")
-
-" Enable 24bit true color
-set termguicolors
-
-" Enable the theme
-syntax enable
-colorscheme rigel
-set noshowmode
-set cursorline
-
-" Setup code folding
-set foldmethod=indent
-set foldlevel=99
-set foldcolumn=1
-
-" A little mourse never hurt anyone
-set mouse=a
-
-" Display relative line numbers, with absolute line number for current line
-set number
-set numberwidth=5
-set relativenumber
-
-" Open new split panes to right and below
-set splitright
-set splitbelow
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-
-set ignorecase " Ignore case when searching
-set smartcase " When searching try to be smart about cases
-set hlsearch  " Highlight search results
-set incsearch " Makes search act like search in modern browsers
-set lazyredraw " Don't redraw while executing macros (good performance config)
-set magic " For regular expressions turn magic on
-set expandtab " Use spaces instead of tabs
-set smarttab " Be smart when using tabs ;)
-
-" 1 tab == 2 spaces
-set shiftwidth=2
-set tabstop=2
-
-" Linebreak on 500 characters
-set lbr
-set tw=500
-
-set ai " Auto indent
-set si " Smart indent
-set wrap " Wrap lines
-
-set history=500 " Sets how many lines of history VIM has to remember
-
-" A buffer becomes hidden when it is abandoned
-set hidden
+lua require("init")
 
 " Enable filetype plugins
 filetype plugin on
@@ -65,7 +9,7 @@ set autoread
 au FocusGained,BufEnter * checktime
 
 " Map leader to comma
-let mapleader = ","
+" let mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -153,44 +97,6 @@ nnoremap <silent> <Leader>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <Leader>bl :BufferOrderByLanguage<CR>
 
 "
-" COC Preferences
-" ---------------------
-"
-let g:coc_global_extensions = [
-  \ 'coc-elixir',
-  \ 'coc-emmet',
-  \ 'coc-eslint',
-  \ 'coc-css',
-  \ 'coc-html',
-  \ 'coc-json',
-  \ 'coc-pairs',
-  \ 'coc-prettier',
-  \ 'coc-tsserver',
-  \ 'coc-yaml'
-  \ ]
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Rename Symbol
-nmap <leader>rn <Plug>(coc-rename)
-
-" Fix autofix problem of current line
-nmap <leader>qf <Plug>(coc-fix-current)
-
-" Show documentation
-nnoremap <silent> H :call <sid>show_documentation()<cr>
-
-function! s:show_documentation()
-  if (CocHasProvider('hover'))
-    call CocAction('doHover')
-  endif
-endfunction
-
-"
 " Goyo preferences
 " ---------------------
 "
@@ -230,55 +136,3 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
-lua << EOF
-require('telescope').setup{
-  defaults = {
-    vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case'
-    },
-    prompt_position = "bottom",
-    prompt_prefix = " ",
-    selection_caret = " ",
-    entry_prefix = "  ",
-    initial_mode = "insert",
-    selection_strategy = "reset",
-    sorting_strategy = "descending",
-    layout_strategy = "horizontal",
-    layout_defaults = {
-      horizontal = {
-        mirror = false,
-      },
-      vertical = {
-        mirror = false,
-      },
-    },
-    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
-    file_ignore_patterns = {},
-    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
-    shorten_path = true,
-    winblend = 0,
-    width = 0.75,
-    preview_cutoff = 120,
-    results_height = 1,
-    results_width = 0.8,
-    border = {},
-    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
-    color_devicons = true,
-    use_less = true,
-    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
-    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
-
-    -- Developer configurations: Not meant for general override
-    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
-  },
-}
-EOF
