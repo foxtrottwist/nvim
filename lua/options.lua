@@ -1,4 +1,5 @@
 local cmd = vim.cmd
+local g = vim.g
 local opt = vim.opt
 
 cmd [[
@@ -6,7 +7,35 @@ cmd [[
 	colorscheme rigel
 	set noshowmode
 	set whichwrap+=<,>,h,l
-	]]
+	filetype plugin on
+	filetype indent on
+]]
+-- Set to auto read when a file is changed from the outside
+cmd [[
+	set autoread
+	au FocusGained,BufEnter * checktime
+]]
+
+-- Keep syntax highlighting in sync in larger React files
+cmd [[
+	autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+	autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+]]
+-- Return to last edit position when opening files (You want this!)
+cmd [[
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+]]
+
+g.mix_format_on_save = 1 -- Elixir preferences
+g.rigel_airline = 1
+g.airline_theme = 'rigel'
+g.airline_powerline_fonts = 1
+g.nvim_tree_width = 35
+g.nvim_tree_auto_close = 1
+g.nvim_tree_follow = 1
+g.nvim_tree_indent_markers = 1
+g.nvim_tree_git_hl = 1
+g.nvim_tree_highlight_opened_files = 1
 
 opt.ai = true -- Auto indent
 opt.backspace = {"eol", "start", "indent"} -- Configure backspace so it acts as it should act

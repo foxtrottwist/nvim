@@ -28,7 +28,7 @@ map("i", "<A-up>", "<Esc>:m .-2<CR>==gi")
 map("v", "<A-Down>", ":m '>+1<CR>gv=gv")
 map("v", "<A-up>", ":m '<-2<CR>gv=gv")
 -- Press Space to turn off highlighting and clear any message already displayed.
-map("n", "<Space>", ":nohlsearch<Bar>:echo<CR", {silent = true})
+map("n", "<Space>", ":nohlsearch<Bar>:echo<CR>", {silent = true})
 -- Focus
 map("n", "<leader>j", ":FocusSplitLeft<CR>", { silent = true })
 map("n", "<leader>e", ":FocusSplitDown<CR>", { silent = true })
