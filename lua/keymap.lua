@@ -50,7 +50,7 @@ map("n", "<Leader>s", ":HopChar1<CR>", { silent = true })
 map("n", "<Leader>l", ":HopLine<CR>", { silent = true })
 -- NVIM Tree 
 map("n","<leader>t",":NvimTreeToggle<CR>")
-map("n","<leader>fr",":NvimTreeRefresh<CR>")
+map("n","<leader>rt",":NvimTreeRefresh<CR>")
 map("n","<leader>ft",":NvimTreeFindFile<CR>")
 -- Telescope preferences
 map("n","<leader>ff","<cmd>lua require('telescope.builtin').find_files()<cr>")
