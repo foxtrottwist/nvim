@@ -16,37 +16,37 @@ vim.api.nvim_exec([[
 
 return require("packer").startup(function()
     use "wbthomason/packer.nvim" -- Packer can manage itself
-    use 'Rigellute/rigel' -- Theme
-    use 'yuezk/vim-js'
-    use 'HerringtonDarkholme/yats.vim'
-    use 'maxmellon/vim-jsx-pretty'
-    use 'jparise/vim-graphql'
+    use "Rigellute/rigel" -- Theme
+    use "yuezk/vim-js"
+    use "HerringtonDarkholme/yats.vim"
+    use "maxmellon/vim-jsx-pretty"
+    use "jparise/vim-graphql"
     use {
-        'styled-components/vim-styled-components',
-        branch = 'main'
+        "styled-components/vim-styled-components",
+        branch = "main"
     }
-    use 'elixir-editors/vim-elixir'
-    use 'slashmili/alchemist.vim'
-    use 'mhinz/vim-mix-format'
-    use 'vim-ruby/vim-ruby'
-    use 'rust-lang/rust.vim'
-    use 'toyamarinyon/vim-swift'
+    use "elixir-editors/vim-elixir"
+    use "slashmili/alchemist.vim"
+    use "mhinz/vim-mix-format"
+    use "vim-ruby/vim-ruby"
+    use "rust-lang/rust.vim"
+    use "toyamarinyon/vim-swift"
     use {
-        'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+        "nvim-telescope/telescope.nvim",
+        requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}
     }
     use {
-        'ojroques/nvim-lspfuzzy',
-        requires = {{'junegunn/fzf'}, {'junegunn/fzf.vim'}},
+        "ojroques/nvim-lspfuzzy",
+        requires = {{"junegunn/fzf"}, {"junegunn/fzf.vim"}},
         config = "require('lspfuzzy').setup{}"
     }
     use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons'
+        "kyazdani42/nvim-tree.lua",
+        requires = "kyazdani42/nvim-web-devicons"
     }
     use {
-        'phaazon/hop.nvim',
-        as = 'hop',
+        "phaazon/hop.nvim",
+        as = "hop",
         config = "require('hop').setup{}"
     }
     use {
@@ -54,11 +54,11 @@ return require("packer").startup(function()
         config = "require('surround').setup{}"
 
     }
-    use 'rmagatti/auto-session'
-    use 'rmagatti/session-lens'
-    use 'airblade/vim-gitgutter'
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
+    use "rmagatti/auto-session"
+    use "rmagatti/session-lens"
+    use "airblade/vim-gitgutter"
+    use "vim-airline/vim-airline"
+    use "vim-airline/vim-airline-themes"
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate"
@@ -76,19 +76,20 @@ return require("packer").startup(function()
     use "hrsh7th/nvim-compe"
     use "mhartington/formatter.nvim"
     use "windwp/nvim-ts-autotag"
-    use 'akinsho/nvim-toggleterm.lua'
-    use 'b3nj5m1n/kommentary'
-    use 'junegunn/goyo.vim'
+    use "akinsho/nvim-toggleterm.lua"
+    use "b3nj5m1n/kommentary"
+    use "beauwilliams/focus.nvim"
+    use "junegunn/goyo.vim"
     use {
-        'windwp/nvim-autopairs',
+        "windwp/nvim-autopairs",
         config = "require('nvim-autopairs').setup{}"
     }
     use {
-        'romgrk/barbar.nvim',
-        requires = 'kyazdani42/nvim-web-devicons'
+        "romgrk/barbar.nvim",
+        requires = "kyazdani42/nvim-web-devicons"
     }
     use {
-        'karb94/neoscroll.nvim',
+        "karb94/neoscroll.nvim",
         config = "require('neoscroll').setup()"
     }
 end)

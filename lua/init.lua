@@ -2,15 +2,18 @@ require("plugins")
 require("plugins-setup")
 require("options")
 require("lsp-setup")
+require("keymap")
 
--- Map leader to comma
-vim.g.mapleader = ","
+
+local api, cmd, g = vim.api, vim.cmd, vim.g
 
 -- Runs Formatter on save
-vim.api.nvim_exec([[
+api.nvim_exec(
+	[[
   augroup FormatAutogroup
     autocmd!
     autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.lua : FormatWrite
   augroup END
-  ]], true)
-
+  ]],
+	true
+)
