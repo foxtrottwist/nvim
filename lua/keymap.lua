@@ -19,18 +19,18 @@ map("i", "tn", "<Esc>")
 -- Map Control \ to tn for the integrated terminal
 map("t", "tn", [[<C-\><C-n>]])
 -- Show list of Buffers
--- map("n", "<Leader>pp", ":Buffers<CR>")
+map("n", "<Leader>pp", ":Buffers<CR>")
 -- Moving lines
-map("n", "<A-Down>", ":m .+1<CR>==")
-map("n", "<A-up>", ":m .-2<CR>==")
-map("i", "<A-Down>", "<Esc>:m .+1<CR>==gi")
-map("i", "<A-up>", "<Esc>:m .-2<CR>==gi")
-map("v", "<A-Down>", ":m '>+1<CR>gv=gv")
-map("v", "<A-up>", ":m '<-2<CR>gv=gv")
+map("n", "<A-Down>", ":m .+1<CR>==", {silent = true})
+map("n", "<A-up>", ":m .-2<CR>==", {silent = true})
+map("i", "<A-Down>", "<Esc>:m .+1<CR>==gi", {silent = true})
+map("i", "<A-up>", "<Esc>:m .-2<CR>==gi", {silent = true})
+map("v", "<A-Down>", ":m '>+1<CR>gv=gv", {silent = true})
+map("v", "<A-up>", ":m '<-2<CR>gv=gv", {silent = true})
 -- Press Space to turn off highlighting and clear any message already displayed.
 map("n", "<Space>", ":nohlsearch<Bar>:echo<CR>", {silent = true})
 -- Focus
-map("n", "<leader>j", ":FocusSplitLeft<CR>", { silent = true })
+map("n", "<leader>n", ":FocusSplitLeft<CR>", { silent = true })
 map("n", "<leader>e", ":FocusSplitDown<CR>", { silent = true })
 map("n", "<leader>u", ":FocusSplitUp<CR>", { silent = true })
 map("n", "<leader>i", ":FocusSplitRight<CR>", { silent = true })
@@ -48,7 +48,7 @@ map("n", "S", ":HopWord<CR>", { silent = true })
 map("n", "<Leader>p", ":HopPattern<CR>", { silent = true })
 map("n", "<Leader>s", ":HopChar1<CR>", { silent = true })
 map("n", "<Leader>l", ":HopLine<CR>", { silent = true })
--- NVIM Tree 
+-- NVIM Tree
 map("n","<leader>t",":NvimTreeToggle<CR>")
 map("n","<leader>rt",":NvimTreeRefresh<CR>")
 map("n","<leader>ft",":NvimTreeFindFile<CR>")

@@ -26,11 +26,11 @@ cmd [[
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 ]]
 
-g.mix_format_on_save = 1 -- Elixir preferences
+g.mix_format_on_save = 1
 g.rigel_airline = 1
 g.airline_theme = 'rigel'
 g.airline_powerline_fonts = 1
-g.nvim_tree_width = 35
+g.nvim_tree_width = 50
 g.nvim_tree_auto_close = 1
 g.nvim_tree_follow = 1
 g.nvim_tree_indent_markers = 1
@@ -72,7 +72,7 @@ vim.api.nvim_exec(
 	[[
   augroup FormatAutogroup
     autocmd!
-    autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.lua : FormatWrite
+    autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html : FormatWrite
   augroup END
   ]],
 	true
