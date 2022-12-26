@@ -1,5 +1,26 @@
 local opt = vim.opt -- for conciseness
 
+-- [[ Setting options ]]
+-- See `:help vim.o`
+
+-- Set highlight on search
+opt.hlsearch = false
+
+-- Enable mouse mode
+opt.mouse = "a"
+
+-- Enable break indent
+opt.breakindent = true
+
+-- Decrease update time
+opt.updatetime = 250
+
+-- Set colorscheme
+opt.termguicolors = true
+
+-- Set completeopt to have a better completion experience
+opt.completeopt = "menuone,noselect"
+
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
@@ -13,7 +34,7 @@ opt.autoindent = true -- copy indent from current line when starting new one
 -- line wrapping
 opt.wrap = false -- disable line wrapping
 
--- search settings
+-- Case insensitive searching UNLESS /C or capital in search
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
@@ -26,7 +47,7 @@ opt.cursorline = true -- highlight the current cursor line
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-vim.opt.scrolloff = 8
+opt.scrolloff = 8
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- backspace
@@ -41,6 +62,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
 
+-- Save undo history
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"

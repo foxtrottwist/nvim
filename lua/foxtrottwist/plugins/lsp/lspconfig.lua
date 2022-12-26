@@ -35,7 +35,9 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
 	keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
 	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
-	keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
+	keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts) -- see outline on right hand side
+	keymap.set("n", "<leader>ds", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+	keymap.set("n", "<leader>ws", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts)
 
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
@@ -49,17 +51,83 @@ end
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Change the Diagnostic symbols in the sign column (gutter)
--- (not in youtube nvim video)
 local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- configure html server
-lspconfig["html"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+--  Add any additional override configuration in the following tables. They will be passed to
+--  the `settings` field of the server config. You must look up that documentation yourself.
+local servers = {
+	-- clangd = {},
+	-- gopls = {},
+	-- pyright = {},
+	-- rust_analyzer = {},
+
+	cssls = {},
+	elixirls = {},
+	html = {},
+	sumneko_lua = {
+		Lua = {
+			-- make the language server recognize "vim" global
+			diagnostics = {
+				globals = { "require", "vim" },
+			},
+			workspace = {
+				checkThirdParty = false,
+				-- make language server aware of runtime files
+				library = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.stdpath("config") .. "/lua"] = true,
+				},
+			},
+			telemetry = { enable = false },
+		},
+	},
+	tailwindcss = {},
+	tsserver = {},
+}
+
+-- import mason plugin safely
+local mason_status, mason = pcall(require, "mason")
+if not mason_status then
+	return
+end
+
+-- import mason-lspconfig plugin safely
+local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status then
+	return
+end
+
+-- import mason-null-ls plugin safely
+local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
+if not mason_null_ls_status then
+	return
+end
+
+-- enable mason
+mason.setup()
+
+mason_lspconfig.setup({
+	-- list of servers for mason to install
+	ensure_installed = vim.tbl_keys(servers), -- auto-install configured servers (with lspconfig)
+	automatic_installation = true, -- not the same as ensure_installed
+})
+
+mason_lspconfig.setup_handlers({
+	function(server_name)
+		if server_name == "typescript" then
+			return
+		end
+
+		lspconfig[server_name].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = servers[server_name],
+		})
+	end,
 })
 
 -- configure typescript server with plugin
@@ -70,35 +138,13 @@ typescript.setup({
 	},
 })
 
--- configure css server
-lspconfig["cssls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure tailwindcss server
-lspconfig["tailwindcss"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	settings = { -- custom settings for lua
-		Lua = {
-			-- make the language server recognize "vim" global
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				-- make language server aware of runtime files
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.stdpath("config") .. "/lua"] = true,
-				},
-			},
-		},
+mason_null_ls.setup({
+	-- list of formatters & linters for mason to install
+	ensure_installed = {
+		"prettier", -- ts/js formatter
+		"stylua", -- lua formatter
+		"eslint_d", -- ts/js linter
 	},
+	-- auto-install configured formatters & linters (with null-ls)
+	automatic_installation = true,
 })
