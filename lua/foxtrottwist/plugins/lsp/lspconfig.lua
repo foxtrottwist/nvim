@@ -20,30 +20,36 @@ local keymap = vim.keymap -- for conciseness
 
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
-	-- keybind options
-	local opts = { noremap = true, silent = true, buffer = bufnr }
+	-- In this case, we create a function that lets us more easily define mappings specific
+	-- for LSP related items. It sets the mode, buffer and description for us each time.
+	local nmap = function(keys, func, desc)
+		if desc then
+			desc = "LSP: " .. desc
+		end
 
-	-- set keybinds
-	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
-	keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-	keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
-	keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
-	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
-	keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
-	keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
-	keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
-	keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
-	keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts) -- see outline on right hand side
-	keymap.set("n", "<leader>ds", "<cmd>Telescope lsp_document_symbols<CR>", opts)
-	keymap.set("n", "<leader>ws", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts)
+		keymap.set("n", keys, func, { noremap = true, silent = true, buffer = bufnr, desc = desc })
+	end
+
+	nmap("gf", "<cmd>Lspsaga lsp_finder<CR>") -- show definition, references
+	nmap("gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>") -- go to declaration
+	nmap("gd", "<cmd>Lspsaga peek_definition<CR>") -- see definition and make edits in window
+	nmap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>") -- go to implementation
+	nmap("<leader>ca", "<cmd>Lspsaga code_action<CR>") -- see available code actions
+	nmap("<leader>rn", "<cmd>Lspsaga rename<CR>") -- smart rename
+	nmap("<leader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>") -- show  diagnostics for line
+	nmap("<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>") -- show diagnostics for cursor
+	nmap("[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>") -- jump to previous diagnostic in buffer
+	nmap("]d", "<cmd>Lspsaga diagnostic_jump_next<CR>") -- jump to next diagnostic in buffer
+	nmap("K", "<cmd>Lspsaga hover_doc<CR>") -- show documentation for what is under cursor
+	nmap("<leader>o", "<cmd>Lspsaga outline<CR>") -- see outline on right hand side
+	nmap("<leader>ds", "<cmd>Telescope lsp_document_symbols<CR>")
+	nmap("<leader>ws", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
 
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
-		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
-		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
-		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
+		nmap("<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
+		nmap("<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports
+		nmap("<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables
 	end
 end
 
