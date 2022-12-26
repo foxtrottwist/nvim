@@ -43,6 +43,8 @@ keymap.set("n", "<leader>tp", ":tabp<CR>", { silent = true }) --  go to previous
 ----------------------
 -- Plugin Keybinds
 ----------------------
+-- zen-mode
+keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR>")
 
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
