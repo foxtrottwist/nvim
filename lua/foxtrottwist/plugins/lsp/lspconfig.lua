@@ -16,18 +16,16 @@ if not typescript_setup then
 	return
 end
 
-local keymap = vim.keymap -- for conciseness
-
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
-	-- In this case, we create a function that lets us more easily define mappings specific
-	-- for LSP related items. It sets the mode, buffer and description for us each time.
+	-- A function to easily define mappings specific to LSP related items.
+	-- It sets the mode, buffer and description for us each time.
 	local nmap = function(keys, func, desc)
 		if desc then
 			desc = "LSP: " .. desc
 		end
 
-		keymap.set("n", keys, func, { noremap = true, silent = true, buffer = bufnr, desc = desc })
+		vim.keymap.set("n", keys, func, { noremap = true, silent = true, buffer = bufnr, desc = desc })
 	end
 
 	nmap("gr", "<cmd>Lspsaga lsp_finder<CR>") -- show definition, references
@@ -66,13 +64,9 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-	-- clangd = {},
-	-- gopls = {},
-	-- pyright = {},
-	-- rust_analyzer = {},
-
 	cssls = {},
 	elixirls = {},
+	gopls = {},
 	html = {},
 	sumneko_lua = {
 		Lua = {
