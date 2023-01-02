@@ -8,6 +8,7 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 
 keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+keymap.set({ "n", "v", "i" }, "<C-z>", "<Nop>", { silent = true })
 
 -- fast saving
 keymap.set("n", "<leader>w", ":w!<CR>")
