@@ -22,6 +22,10 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
+-- Moving lines
+keymap.set({ "n", "v", "i" }, "<A-Down>", ":m .+1<CR>==", { silent = true })
+keymap.set({ "n", "v", "i" }, "<A-up>", ":m .-2<CR>==", { silent = true })
+
 -- keep cursor in the middle of the screen when using <C-d> & <C-u>
 vim.keymap.set("n", "<C-f>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
