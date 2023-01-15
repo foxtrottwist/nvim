@@ -33,7 +33,9 @@ return packer.startup(function(use)
 
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
-	use("Rigellute/rigel") -- preferred colorscheme
+	use({ "catppuccin/nvim", as = "catppuccin" }) -- preferred colorscheme
+
+	use("Rigellute/rigel")
 
 	use("bluz71/vim-nightfly-guicolors") -- secondary colorscheme
 
