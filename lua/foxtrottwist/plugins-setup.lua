@@ -35,11 +35,9 @@ return packer.startup(function(use)
 
 	use({ "catppuccin/nvim", as = "catppuccin" }) -- preferred colorscheme
 
-	use("Rigellute/rigel")
-
 	use("bluz71/vim-nightfly-guicolors") -- secondary colorscheme
 
-	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+	use("Rigellute/rigel") -- tertiary colorscheme
 
 	use("szw/vim-maximizer") -- maximizes and restores current window
 
