@@ -3,6 +3,7 @@ require("catppuccin").setup({
 
 	integrations = {
 		cmp = true,
+		barbar = true,
 		fidget = true,
 		harpoon = true,
 		hop = true,
