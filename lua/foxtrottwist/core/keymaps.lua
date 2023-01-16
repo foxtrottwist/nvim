@@ -11,7 +11,7 @@ keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap.set({ "n", "v", "i" }, "<C-z>", "<Nop>", { silent = true })
 
 -- fast saving
-keymap.set("n", "<leader>w", ":w!<CR>")
+keymap.set("n", "<leader>w", ":w!<CR>", { silent = true }) -- using silent to avoid folke/noice.nvim flashing
 
 -- use tn to exit insert mode
 keymap.set("i", "tn", "<ESC>")
@@ -55,7 +55,7 @@ keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR>")
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
 -- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
 
 -- hop
 keymap.set("n", "s", ":HopChar2<CR>", { silent = true })

@@ -24,6 +24,7 @@ treesitter.setup({
 		"html",
 		"css",
 		"markdown",
+		"markdown_inline",
 		"graphql",
 		"bash",
 		"lua",
@@ -32,6 +33,7 @@ treesitter.setup({
 		"gitignore",
 		"elixir",
 		"go",
+		"regex",
 	},
 	-- auto install above language parsers
 	auto_install = true,

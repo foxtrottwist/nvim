@@ -121,6 +121,19 @@ return packer.startup(function(use)
 	-- zen mode
 	use({ "folke/zen-mode.nvim", requires = { "folke/twilight.nvim" } })
 
+	-- messages, cmdline & popup
+	use({
+		"folke/noice.nvim",
+		requires = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
