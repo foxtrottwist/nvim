@@ -66,7 +66,7 @@ end
 local servers = {
 	cssls = {},
 	elixirls = {},
-	gopls = {},
+	-- gopls = {},
 	html = {},
 	sumneko_lua = {
 		Lua = {
