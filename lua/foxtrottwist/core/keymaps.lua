@@ -11,7 +11,10 @@ keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap.set({ "n", "v", "i" }, "<C-z>", "<Nop>", { silent = true })
 
 -- fast saving
-keymap.set("n", "<leader>w", ":w!<CR>", { silent = true }) -- using silent to avoid folke/noice.nvim flashing
+keymap.set("n", "<leader>w", ":w!<CR>", { silent = true })
+
+-- more intuitive redo
+keymap.set({ "n", "v" }, "<S-U>", "<C-R>")
 
 -- use tn to exit insert mode
 keymap.set("i", "tn", "<ESC>")
@@ -87,8 +90,8 @@ keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if ne
 
 local opts = { noremap = true, silent = true }
 -- Move to previous/next
-keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
-keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
+keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)
+keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
 -- Re-order to previous/next
 keymap.set("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
 keymap.set("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)
