@@ -18,6 +18,12 @@ end
 -- })
 
 saga.setup({
+	-- finder = {
+	-- 	keys = {
+	-- 		jump_to = "<CR>",
+	-- 	},
+	-- },
+
 	ui = {
 		-- border type can be single,double,rounded,solid,shadow.
 		border = "rounded",

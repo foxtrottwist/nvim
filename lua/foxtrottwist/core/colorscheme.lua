@@ -10,7 +10,7 @@ require("catppuccin").setup({
 		lsp_saga = true,
 		markdown = true,
 		mason = true,
-		noice = true,
+		-- noice = true,
 		nvimtree = true,
 		telescope = true,
 		treesitter = true,
