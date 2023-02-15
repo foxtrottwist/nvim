@@ -68,7 +68,7 @@ local servers = {
 	elixirls = {},
 	-- gopls = {},
 	html = {},
-	sumneko_lua = {
+	lua_ls = {
 		Lua = {
 			-- make the language server recognize "vim" global
 			diagnostics = {
