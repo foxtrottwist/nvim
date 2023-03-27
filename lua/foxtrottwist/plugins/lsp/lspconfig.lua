@@ -85,6 +85,7 @@ local servers = {
 			telemetry = { enable = false },
 		},
 	},
+	rust_analyzer = {},
 	tailwindcss = {},
 	tsserver = {},
 }
@@ -118,7 +119,7 @@ mason_lspconfig.setup({
 
 mason_lspconfig.setup_handlers({
 	function(server_name)
-		if server_name == "typescript" then
+		if server_name == "typescript" or "rust_analyzer" then
 			return
 		end
 
@@ -128,6 +129,12 @@ mason_lspconfig.setup_handlers({
 			settings = servers[server_name],
 		})
 	end,
+})
+
+-- configure rust outside of mason just to be safe
+lspconfig.rust_analyzer.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
 })
 
 -- configure typescript server with plugin
