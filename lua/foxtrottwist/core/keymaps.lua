@@ -59,6 +59,7 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window max
 
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
+keymap.set("n", "<leader>fe", ":NvimTreeFocus<CR>", { silent = true }) -- focus file explorer
 
 -- hop
 keymap.set("n", "s", ":HopChar2<CR>", { silent = true })
