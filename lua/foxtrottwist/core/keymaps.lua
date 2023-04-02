@@ -69,6 +69,10 @@ keymap.set("n", "<leader>fe", ":NvimTreeFocus<CR>", { silent = true }) -- focus 
 keymap.set("n", "s", ":HopChar2<CR>", { silent = true })
 keymap.set("n", "S", ":HopWord<CR>", { silent = true })
 
+-- gitsigns
+keymap.set("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", { silent = true })
+keymap.set("n", "<leader>td", ":Gitsigns toggle_deleted<CR>", { silent = true })
+
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
@@ -90,29 +94,13 @@ keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git co
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
--- restart lsp server (not on youtube nvim video)
+-- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
 local opts = { noremap = true, silent = true }
 -- Move to previous/next
 keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)
 keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
--- Re-order to previous/next
-keymap.set("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
-keymap.set("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)
--- Goto buffer in position...
-keymap.set("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
-keymap.set("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
-keymap.set("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
-keymap.set("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
-keymap.set("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
-keymap.set("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
-keymap.set("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", opts)
-keymap.set("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", opts)
-keymap.set("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
-keymap.set("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
--- Pin/unpin buffer
-keymap.set("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
 -- Close buffer
 keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 -- Wipeout buffer
@@ -123,8 +111,6 @@ keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 --                 :BufferCloseAllButCurrentOrPinned
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
--- Magic buffer-picking mode
-keymap.set("n", "<C-p>", "<Cmd>BufferPick<CR>", opts)
 -- Sort automatically by...
 keymap.set("n", "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
 keymap.set("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>", opts)

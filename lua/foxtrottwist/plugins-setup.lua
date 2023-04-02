@@ -83,8 +83,7 @@ require("lazy").setup({
 		},
 	},
 
-	-- messages, cmdline & popup
-	{
+	{ -- messages, cmdline & popup
 		"folke/noice.nvim",
 		dependencies = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -103,8 +102,7 @@ require("lazy").setup({
 			"williamboman/mason.nvim", -- in charge of managing lsp servers, linters & formatters
 			"williamboman/mason-lspconfig.nvim", -- bridges gap b/w mason & lspconfig
 
-			-- Useful status updates for LSP
-			{
+			{ -- Useful status updates for LSP
 				"j-hui/fidget.nvim",
 				opts = {
 					window = {
@@ -140,8 +138,7 @@ require("lazy").setup({
 		},
 	},
 
-	-- statusline
-	{
+	{ -- statusline
 		"nvim-lualine/lualine.nvim",
 		opts = { options = { theme = "catppuccin" } },
 	},
