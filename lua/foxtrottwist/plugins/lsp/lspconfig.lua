@@ -66,7 +66,14 @@ end
 local servers = {
 	cssls = {},
 	elixirls = {},
-	-- gopls = {},
+	gopls = {
+		gopls = {
+			gofumpt = true,
+		},
+		flags = {
+			debounce_text_changes = 150,
+		},
+	},
 	html = {},
 	lua_ls = {
 		Lua = {
@@ -119,7 +126,7 @@ mason_lspconfig.setup({
 
 mason_lspconfig.setup_handlers({
 	function(server_name)
-		if server_name == "typescript" or "rust_analyzer" then
+		if server_name == "typescript" then
 			return
 		end
 
@@ -129,12 +136,19 @@ mason_lspconfig.setup_handlers({
 			settings = servers[server_name],
 		})
 	end,
-})
 
--- configure rust outside of mason just to be safe
-lspconfig.rust_analyzer.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+	["rust_analyzer"] = function()
+		lspconfig.rust_analyzer.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			cmd = {
+				"rustup",
+				"run",
+				"stable",
+				"rust-analyzer",
+			},
+		})
+	end,
 })
 
 -- configure typescript server with plugin
