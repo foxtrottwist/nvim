@@ -77,9 +77,10 @@ keymap.set("n", "<leader>td", ":Gitsigns toggle_deleted<CR>", { silent = true })
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fw", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>")
+keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
+keymap.set("n", "<leader>p", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" }) -- list open buffers in current neovim instance
 keymap.set("n", "<leader>/", function()
 	-- You can pass additional configuration to telescope to change theme, layout, etc.
 	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
