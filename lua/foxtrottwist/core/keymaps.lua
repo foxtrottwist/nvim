@@ -88,7 +88,7 @@ keymap.set("n", "<leader>/", function()
 	}))
 end, { desc = "[/] Fuzzily search in current buffer]" })
 
--- telescope git commands (not on youtube nvim video)
+-- telescope git commands
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
 keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]

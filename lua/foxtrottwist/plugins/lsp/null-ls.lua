@@ -15,10 +15,17 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	-- setup formatters & linters
 	sources = {
+		formatting.mix,
 		--  to disable file types use
 		--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
 		formatting.prettier, -- js/ts formatter
 		formatting.stylua, -- lua formatter
+		diagnostics.credo.with({
+			-- only enable eslint if root has .credo.exs
+      condition = function (utils)
+        return utils.root_has_file("credo.exs")
+      end
+    }),
 		diagnostics.eslint_d.with({ -- js/ts linter
 			-- only enable eslint if root has .eslintrc.js
 			condition = function(utils)
