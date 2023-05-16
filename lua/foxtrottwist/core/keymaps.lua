@@ -87,7 +87,7 @@ keymap.set("n", "<leader>/", function()
 		winblend = 10,
 		previewer = false,
 	}))
-end, { desc = "[/] Fuzzily search in current buffer]" })
+end, { desc = "[/] Fuzzily search in current buffer" })
 
 -- telescope git commands
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
@@ -103,7 +103,7 @@ local opts = { noremap = true, silent = true }
 keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)
 keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
 -- Close buffer
-keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
+keymap.set("n", "<A-x>", "<Cmd>BufferClose<CR>", opts)
 -- Wipeout buffer
 --                 :BufferWipeout
 -- Close commands
