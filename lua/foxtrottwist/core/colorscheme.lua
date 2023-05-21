@@ -3,7 +3,7 @@ require("catppuccin").setup({
 
 	integrations = {
 		cmp = true,
-		barbar = true,
+		-- barbar = true,
 		fidget = true,
 		harpoon = true,
 		hop = true,
@@ -11,9 +11,11 @@ require("catppuccin").setup({
 		markdown = true,
 		mason = true,
 		-- noice = true,
+		-- notify = true,
 		nvimtree = true,
 		telescope = true,
 		treesitter = true,
+		which_key = true,
 	},
 })
 
