@@ -22,6 +22,7 @@ require("lazy").setup({
 	{ "catppuccin/nvim", name = "catppuccin" },
 	-- add, delete, change surroundings (it's awesome)
 	"tpope/vim-surround",
+	"tpope/vim-repeat",
 	-- replace with register contents using motion (gr + motion)
 	"vim-scripts/ReplaceWithRegister",
 	-- jump to positions in the visible editor area by entering a 2-character search pattern
@@ -68,6 +69,8 @@ require("lazy").setup({
 	-- 		letters = "arstneiogmkhxcdvzlywfpubjq;ARSTNEIGMKHXCDVZLYWFPUBJQ:",
 	-- 	},
 	-- },
+
+	{ "goolord/alpha-nvim" },
 
 	{ "stevearc/oil.nvim", opts = {} },
 

@@ -2,6 +2,7 @@ require("catppuccin").setup({
 	flavour = "macchiato",
 
 	integrations = {
+		alpha = true,
 		cmp = true,
 		-- barbar = true,
 		fidget = true,
