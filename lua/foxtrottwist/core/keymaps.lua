@@ -98,25 +98,25 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 -- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
-local opts = { noremap = true, silent = true }
--- Move to previous/next
-keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)
-keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
--- Close buffer
-keymap.set("n", "<A-x>", "<Cmd>BufferClose<CR>", opts)
--- Wipeout buffer
---                 :BufferWipeout
--- Close commands
---                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
---                 :BufferCloseAllButCurrentOrPinned
---                 :BufferCloseBuffersLeft
---                 :BufferCloseBuffersRight
--- Sort automatically by...
-keymap.set("n", "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
-keymap.set("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>", opts)
-keymap.set("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", opts)
-keymap.set("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
+-- local opts = { noremap = true, silent = true }
+-- -- Move to previous/next
+-- keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)
+-- keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
+-- -- Close buffer
+-- keymap.set("n", "<A-x>", "<Cmd>BufferClose<CR>", opts)
+-- -- Wipeout buffer
+-- --                 :BufferWipeout
+-- -- Close commands
+-- --                 :BufferCloseAllButCurrent
+-- --                 :BufferCloseAllButPinned
+-- --                 :BufferCloseAllButCurrentOrPinned
+-- --                 :BufferCloseBuffersLeft
+-- --                 :BufferCloseBuffersRight
+-- -- Sort automatically by...
+-- keymap.set("n", "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
+-- keymap.set("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>", opts)
+-- keymap.set("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", opts)
+-- keymap.set("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
