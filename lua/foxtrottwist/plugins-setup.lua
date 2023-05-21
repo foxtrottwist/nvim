@@ -69,6 +69,8 @@ require("lazy").setup({
 		},
 	},
 
+	{ "stevearc/oil.nvim", opts = {} },
+
 	{ -- zen mode
 		"folke/zen-mode.nvim",
 		dependencies = { "folke/twilight.nvim" },
