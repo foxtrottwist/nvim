@@ -50,7 +50,7 @@ keymap.set("n", "<leader>tp", ":tabp<CR>", { silent = true }) --  go to previous
 ----------------------
 -- harpoon
 keymap.set("n", "<leader>a", require("harpoon.mark").add_file)
-keymap.set("n", "<C-e>", require("harpoon.ui").toggle_quick_menu)
+keymap.set("n", "<A-e>", require("harpoon.ui").toggle_quick_menu)
 
 -- undo-tree
 keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
