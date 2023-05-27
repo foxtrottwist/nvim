@@ -104,7 +104,12 @@ require("lazy").setup({
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			-- Automatically install LSPs to stdpath for neovim
-			"williamboman/mason.nvim", -- in charge of managing lsp servers, linters & formatters
+			--
+			{ -- in charge of managing lsp servers, linters & formatters
+				"williamboman/mason.nvim",
+				build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+			},
+
 			"williamboman/mason-lspconfig.nvim", -- bridges gap b/w mason & lspconfig
 
 			{ -- Useful status updates for LSP
