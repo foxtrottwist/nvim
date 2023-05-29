@@ -191,4 +191,17 @@ require("lazy").setup({
 			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
 		end,
 	},
+
+	{
+		"xbase-lab/xbase",
+		build = "make install",
+		requires = {
+			"neovim/nvim-lspconfig",
+			"nvim-telescope/telescope.nvim", -- optional
+			"nvim-lua/plenary.nvim", -- optional/requirement of telescope.nvim
+		},
+		config = function()
+			require("xbase").setup({}) -- see default configuration bellow
+		end,
+	},
 })
