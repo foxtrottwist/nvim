@@ -40,17 +40,12 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
-keymap.set("n", "<leader>to", ":tabnew<CR>", { silent = true }) -- open new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>", { silent = true }) -- close current tab
-keymap.set("n", "<leader>tn", ":tabn<CR>", { silent = true }) --  go to next tab
-keymap.set("n", "<leader>tp", ":tabp<CR>", { silent = true }) --  go to previous tab
-
 ----------------------
 -- Plugin Keybinds
 ----------------------
 -- harpoon
 keymap.set("n", "<leader>a", require("harpoon.mark").add_file)
-keymap.set("n", "<A-e>", require("harpoon.ui").toggle_quick_menu)
+keymap.set("n", "<leader>te", require("harpoon.ui").toggle_quick_menu)
 
 -- undo-tree
 keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
@@ -97,29 +92,5 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-
--- local opts = { noremap = true, silent = true }
--- -- Move to previous/next
--- keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)
--- keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
--- -- Close buffer
--- keymap.set("n", "<A-x>", "<Cmd>BufferClose<CR>", opts)
--- -- Wipeout buffer
--- --                 :BufferWipeout
--- -- Close commands
--- --                 :BufferCloseAllButCurrent
--- --                 :BufferCloseAllButPinned
--- --                 :BufferCloseAllButCurrentOrPinned
--- --                 :BufferCloseBuffersLeft
--- --                 :BufferCloseBuffersRight
--- -- Sort automatically by...
--- keymap.set("n", "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
--- keymap.set("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>", opts)
--- keymap.set("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", opts)
--- keymap.set("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
-
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be used
 
 keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
