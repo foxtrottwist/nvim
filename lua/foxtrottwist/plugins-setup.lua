@@ -201,7 +201,37 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim", -- optional/requirement of telescope.nvim
 		},
 		config = function()
-			require("xbase").setup({}) -- see default configuration bellow
+			require("xbase").setup({
+				--- Log level. Set it to ERROR to ignore everything
+				log_level = vim.log.levels.DEBUG,
+				sourcekit = {
+					on_attach = require("foxtrottwist.plugins.lsp.on_attach"),
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+				},
+				--- Simulators to only include.
+				--- run `xcrun simctl list` to get a full list of available simulator
+				--- If the list is empty then all simulator available  will be included
+				simctl = {
+					iOS = {}, -- all available devices
+					watchOS = {}, -- all available devices
+					tvOS = {}, -- all available devices
+				},
+				--- Mappings
+				mappings = {
+					--- Whether xbase mapping should be disabled.
+					enable = true,
+					--- Open build picker. showing targets and configuration.
+					build_picker = "<leader>xb", --- set to 0 to disable
+					--- Open run picker. showing targets, devices and configuration
+					run_picker = "<leader>xr", --- set to 0 to disable
+					--- Open watch picker. showing run or build, targets, devices and configuration
+					watch_picker = "<leader>xs", --- set to 0 to disable
+					--- A list of all the previous pickers
+					all_picker = "<leader>xf", --- set to 0 to disable
+					--- vertical toggle log buffer
+					toggle_vsplit_log_buffer = "<leader>xl",
+				},
+			})
 		end,
 	},
 })
