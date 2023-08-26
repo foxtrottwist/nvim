@@ -1,2 +1,2 @@
-require("foxtrottwist.plugins-setup")
+require("foxtrottwist.lazy")
 require("foxtrottwist.core")
