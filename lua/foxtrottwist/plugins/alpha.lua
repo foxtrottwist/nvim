@@ -1,42 +1,46 @@
-local status, alpha = pcall(require, "alpha")
-if not status then
-	return
-end
+return {
+	"goolord/alpha-nvim",
+	event = "VimEnter",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	config = function()
+		local alpha = require("alpha")
+		local dashboard = require("alpha.themes.dashboard")
 
-local dashboard_setup, dashboard = pcall(require, "alpha.themes.dashboard")
-if not dashboard_setup then
-	return
-end
+		dashboard.section.header.val = {
+			"                                                                                                                                             ",
+			"          n@@@@@@@@@@@@@@@@@@@@@@@@@@@-                                                                                                      ",
+			"          @@@@@@@@@@@@@@@@@@@@@@@@@@@@                                                                                                       ",
+			"         <@@@@r-----------------f@@@@s                                                                                                       ",
+			"         @@@@@                  )@@@@                                                                                                        ",
+			"        ,@@@@;                  @@@@@                                                                                                        ",
+			"        @@@@@                  ,@@@@;      fyk*v           >2k**_      -P*k1           P*VP           *ykP      fP*Vv           >yk**_       ",
+			"        @@@@n                  @@@@@       @@@@]         :@@@@@@       @@@@V          4@@@@          L@@@@      @@@@]         :@@@@@@        ",
+			"       c@@@@                   @@@@u      !@@@@         h@@@@@@@       @@@@           @@@@,          @@@@)     !@@@@         x@@@@@@@        ",
+			"       @@@@@                  ?@@@@       @@@@o       r@@@d@@@@:      1@@@@          +@@@@          ,@@@@      @@@@*       r@@@@@@@@:        ",
+			"      :@@@@:                  @@@@@       @@@@       @@@@,(@@@@       @@@@!          @@@@c          @@@@4      @@@@       @@@@,(@@@@         ",
+			"      @@@@@                  :@@@@_      s@@@@     <@@@>  @@@@c      (@@@@          .@@@@           @@@@.     7@@@@     <@@@c  @@@@c         ",
+			"      @@@@?                  @@@@@       @@@@'   .@@@@`  ,@@@@       @@@@n          @@@@@          >@@@@      @@@@'   ,@@@@'  ,@@@@          ",
+			"     [@@@@                   @@@@?      '@@@@   u@@@+    @@@@@      '@@@@           @@@@-          @@@@)     '@@@@   u@@@+    @@@@@          ",
+			"     @@@@@                  n@@@@       @@@@[ !@@@@      @@@@.      3@@@@          ]@@@@          :@@@@      @@@@[ !@@@@      @@@@.          ",
+			"    _@@@@-                  @@@@@       @@@@!k@@@r      c@@@@       @@@@!          @@@@c          @@@@y      @@@@!P@@@r      ]@@@@           ",
+			"    @@@@@                  ;@@@@-      F@@@@@@@o        @@@@L      L@@@@          -@@@@           @@@@`     F@@@@@@@2        @@@@+           ",
+			"    @@@@]                  @@@@@       @@@@@@@!        -@@@@       @@@@Y          @@@@@          7@@@@      @@@@@@@_        -@@@@            ",
+			"   x@@@@                   @@@@c      +@@@@@s          @@@@V      -@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@r     +@@@@@I          @@@@4            ",
+			"   @@@@Y                  L@@@@       @@@@@-           @@@@`      n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@      @@@@@,           @@@@`            ",
+		}
 
-dashboard.section.header.val = {
-	"                                                                                                                                             ",
-	"          n@@@@@@@@@@@@@@@@@@@@@@@@@@@-                                                                                                      ",
-	"          @@@@@@@@@@@@@@@@@@@@@@@@@@@@                                                                                                       ",
-	"         <@@@@r-----------------f@@@@s                                                                                                       ",
-	"         @@@@@                  )@@@@                                                                                                        ",
-	"        ,@@@@;                  @@@@@                                                                                                        ",
-	"        @@@@@                  ,@@@@;      fyk*v           >2k**_      -P*k1           P*VP           *ykP      fP*Vv           >yk**_       ",
-	"        @@@@n                  @@@@@       @@@@]         :@@@@@@       @@@@V          4@@@@          L@@@@      @@@@]         :@@@@@@        ",
-	"       c@@@@                   @@@@u      !@@@@         h@@@@@@@       @@@@           @@@@,          @@@@)     !@@@@         x@@@@@@@        ",
-	"       @@@@@                  ?@@@@       @@@@o       r@@@d@@@@:      1@@@@          +@@@@          ,@@@@      @@@@*       r@@@@@@@@:        ",
-	"      :@@@@:                  @@@@@       @@@@       @@@@,(@@@@       @@@@!          @@@@c          @@@@4      @@@@       @@@@,(@@@@         ",
-	"      @@@@@                  :@@@@_      s@@@@     <@@@>  @@@@c      (@@@@          .@@@@           @@@@.     7@@@@     <@@@c  @@@@c         ",
-	"      @@@@?                  @@@@@       @@@@'   .@@@@`  ,@@@@       @@@@n          @@@@@          >@@@@      @@@@'   ,@@@@'  ,@@@@          ",
-	"     [@@@@                   @@@@?      '@@@@   u@@@+    @@@@@      '@@@@           @@@@-          @@@@)     '@@@@   u@@@+    @@@@@          ",
-	"     @@@@@                  n@@@@       @@@@[ !@@@@      @@@@.      3@@@@          ]@@@@          :@@@@      @@@@[ !@@@@      @@@@.          ",
-	"    _@@@@-                  @@@@@       @@@@!k@@@r      c@@@@       @@@@!          @@@@c          @@@@y      @@@@!P@@@r      ]@@@@           ",
-	"    @@@@@                  ;@@@@-      F@@@@@@@o        @@@@L      L@@@@          -@@@@           @@@@`     F@@@@@@@2        @@@@+           ",
-	"    @@@@]                  @@@@@       @@@@@@@!        -@@@@       @@@@Y          @@@@@          7@@@@      @@@@@@@_        -@@@@            ",
-	"   x@@@@                   @@@@c      +@@@@@s          @@@@V      -@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@r     +@@@@@I          @@@@4            ",
-	"   @@@@Y                  L@@@@       @@@@@-           @@@@`      n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@      @@@@@,           @@@@`            ",
+		dashboard.section.buttons.val = {
+			dashboard.button("f", "  > Find File", ":Telescope find_files<CR>"),
+			dashboard.button("m", "  > Marks", ":lua require('harpoon.ui').toggle_quick_menu()<CR>"),
+			dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
+			dashboard.button("l", "  > Update", ":Lazy<CR>"),
+			dashboard.button("q", "  > Quit", ":qa<CR>"),
+		}
+
+		-- Send config to alpha
+		alpha.setup(dashboard.opts)
+
+		-- Disable folding on alpha buffer
+		vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
+	end,
 }
-
-dashboard.section.buttons.val = {
-	dashboard.button("f", "  > Find File", ":Telescope find_files<CR>"),
-	dashboard.button("m", "  > Marks", ":lua require('harpoon.ui').toggle_quick_menu()<CR>"),
-	dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
-	dashboard.button("l", "  > Update", ":Lazy<CR>"),
-	dashboard.button("q", "  > Quit", ":qa<CR>"),
-}
-
-alpha.setup(dashboard.opts)

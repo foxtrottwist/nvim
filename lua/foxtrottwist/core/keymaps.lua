@@ -43,9 +43,6 @@ keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 ----------------------
 -- Plugin Keybinds
 ----------------------
--- harpoon
-keymap.set("n", "<leader>a", require("harpoon.mark").add_file)
-keymap.set("n", "<leader>te", require("harpoon.ui").toggle_quick_menu)
 
 -- undo-tree
 keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
@@ -56,39 +53,9 @@ keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR>")
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
-keymap.set("n", "<leader>fe", ":NvimTreeFocus<CR>", { silent = true }) -- focus file explorer
-
--- hop
-keymap.set("n", "s", ":HopChar2<CR>", { silent = true })
-keymap.set("n", "S", ":HopWord<CR>", { silent = true })
-
 -- gitsigns
 keymap.set("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", { silent = true })
 keymap.set("n", "<leader>td", ":Gitsigns toggle_deleted<CR>", { silent = true })
-
--- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fw", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>")
-keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
-keymap.set("n", "<leader>p", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" }) -- list open buffers in current neovim instance
-keymap.set("n", "<leader>/", function()
-	-- You can pass additional configuration to telescope to change theme, layout, etc.
-	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 10,
-		previewer = false,
-	}))
-end, { desc = "[/] Fuzzily search in current buffer" })
-
--- telescope git commands
-keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
-keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
-keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
-keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
 -- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
