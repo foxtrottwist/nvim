@@ -1,4 +1,4 @@
-local keymap = vim.keymap -- for conciseness
+local keymap = vim.keymap
 
 ---------------------
 -- General Keymaps
@@ -7,24 +7,21 @@ local keymap = vim.keymap -- for conciseness
 keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap.set({ "n", "v", "i" }, "<C-z>", "<Nop>", { silent = true })
 
--- fast saving
-keymap.set("n", "<leader>w", ":w!<CR>", { silent = true })
+keymap.set("n", "<leader>w", ":w!<CR>", { silent = true }, { desc = "Fast saving." })
 
--- more intuitive redo
-keymap.set({ "n", "v" }, "<S-U>", "<C-R>")
+keymap.set({ "n", "v" }, "<leader>pp", "<C-^>", { desc = "Return to previously edited buffer." })
 
--- use tn to exit insert mode
-keymap.set("i", "tn", "<ESC>")
+keymap.set({ "n", "v" }, "<S-U>", "<C-R>", { desc = "More intuitive redo" })
+
+keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart lsp server." })
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
--- delete single character without copying into register
-keymap.set("n", "x", '"_x')
+keymap.set("n", "x", '"_x', { desc = "Delete single character without copying into register." })
 
--- Moving lines
-keymap.set({ "n", "v", "i" }, "<A-Down>", ":m .+1<CR>==", { silent = true })
-keymap.set({ "n", "v", "i" }, "<A-up>", ":m .-2<CR>==", { silent = true })
+keymap.set({ "n", "v", "i" }, "<A-Down>", ":m .+1<CR>==", { desc = "Moving line down.", silent = true })
+keymap.set({ "n", "v", "i" }, "<A-up>", ":m .-2<CR>==", { desc = "Moving line down.", silent = true })
 
 -- keep cursor in the middle of the screen when using <C-d> & <C-u>
 vim.keymap.set("n", "<C-f>", "<C-d>zz")
@@ -45,19 +42,22 @@ keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 ----------------------
 
 -- undo-tree
-keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Open Undotree." })
 
 -- zen-mode
-keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR>")
+keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR>", { desc = "Toggle zen mode." })
 
 -- vim-maximizer
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
+keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>", { desc = "Toggle split window maximization." })
 
 -- gitsigns
-keymap.set("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", { silent = true })
-keymap.set("n", "<leader>td", ":Gitsigns toggle_deleted<CR>", { silent = true })
+keymap.set(
+	"n",
+	"<leader>tb",
+	":Gitsigns toggle_current_line_blame<CR>",
+	{ desc = "Toggle Git line blame.", silent = true }
+)
+keymap.set("n", "<leader>td", ":Gitsigns toggle_deleted<CR>", { desc = "Toggle deleted lines.", silent = true })
 
--- restart lsp server
-keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-
+-- oil
 keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
