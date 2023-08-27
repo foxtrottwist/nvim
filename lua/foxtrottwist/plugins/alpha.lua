@@ -33,8 +33,6 @@ return {
 			dashboard.button("f", "  > Find File", ":Telescope find_files<CR>"),
 			dashboard.button("m", "  > Marks", ":lua require('harpoon.ui').toggle_quick_menu()<CR>"),
 			dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
-			dashboard.button("l", "  > Update", ":Lazy<CR>"),
-			dashboard.button("q", "  > Quit", ":qa<CR>"),
 		}
 
 		-- Send config to alpha
