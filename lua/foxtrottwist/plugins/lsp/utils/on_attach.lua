@@ -9,7 +9,7 @@ return function(client, bufnr)
 		vim.keymap.set("n", keys, func, { noremap = true, silent = true, buffer = bufnr, desc = desc })
 	end
 
-	nmap("gr", "<cmd>Lspsaga lsp_finder<CR>", "show definition references")
+	nmap("sr", "<cmd>Lspsaga finder<CR>", "show definition references")
 	nmap("gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", "go to declaration")
 	nmap("gd", "<cmd>Lspsaga peek_definition<CR>", "see definition and make edits in window")
 	nmap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", "go to implementation")
