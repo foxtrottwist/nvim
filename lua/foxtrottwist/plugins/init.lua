@@ -1,6 +1,4 @@
 return {
-	-- add, delete, change surroundings (it's awesome)
-	"tpope/vim-surround",
 	"tpope/vim-repeat",
 	-- replace with register contents using motion (gr + motion)
 	"vim-scripts/ReplaceWithRegister",
