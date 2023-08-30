@@ -32,23 +32,14 @@ keymap.set("n", "<leader>+", "<C-a>") -- increment
 keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
 -- window management
-keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
-keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
+keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make split windows equal width & height" })
+keymap.set("n", "<leader>sx", ":close<CR>", { desc = "Close current split window" })
 
 ----------------------
 -- Plugin Keybinds
 ----------------------
-
--- undo-tree
-keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Open Undotree." })
-
--- zen-mode
-keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR>", { desc = "Toggle zen mode." })
-
--- vim-maximizer
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>", { desc = "Toggle split window maximization." })
 
 -- gitsigns
 keymap.set(
@@ -61,3 +52,12 @@ keymap.set("n", "<leader>td", ":Gitsigns toggle_deleted<CR>", { desc = "Toggle d
 
 -- oil
 keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+
+-- undo-tree
+keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Open Undotree." })
+
+-- vim-maximizer
+keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>", { desc = "Toggle split window maximization." })
+
+-- zen-mode
+keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR>", { desc = "Toggle zen mode." })
