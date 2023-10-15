@@ -10,19 +10,19 @@ return {
 
 		keymap.set(
 			"n",
-			"<leader>am",
+			"<leader>a",
 			"<cmd>lua require('harpoon.mark').add_file()<cr>",
 			{ desc = "Mark file with harpoon" }
 		)
 		keymap.set(
 			"n",
-			"<leader>an",
+			"<leader>nn",
 			"<cmd>lua require('harpoon.ui').nav_next()<cr>",
 			{ desc = "Go to next harpoon mark" }
 		)
 		keymap.set(
 			"n",
-			"<leader>at",
+			"<leader>mm",
 			"<cmd>lua require('harpoon.ui').nav_prev()<cr>",
 			{ desc = "Go to previous harpoon mark" }
 		)

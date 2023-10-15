@@ -1,4 +1,4 @@
-return function(client, bufnr)
+return function(_, bufnr)
 	-- A function to easily define mappings specific to LSP related items.
 	-- It sets the mode, buffer and description for us each time.
 	local nmap = function(keys, func, desc)
@@ -20,14 +20,7 @@ return function(client, bufnr)
 	nmap("[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", "jump to previous diagnostic in buffer")
 	nmap("]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", "jump to next diagnostic in buffer")
 	nmap("K", "<cmd>Lspsaga hover_doc<CR>", "show documentation for what is under cursor")
-	nmap("<leader>o", "<cmd>Lspsaga outline<CR>", "see outline on right hand side")
+	-- nmap("<leader>o", "<cmd>Lspsaga outline<CR>", "see outline on right hand side")
 	nmap("<leader>sd", "<cmd>Telescope lsp_document_symbols<CR>")
 	nmap("<leader>sw", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
-
-	-- typescript specific keymaps (e.g. rename file and update imports)
-	if client.name == "tsserver" then
-		nmap("<leader>rf", ":TypescriptRenameFile<CR>", "rename file and update imports")
-		nmap("<leader>oi", ":TypescriptOrganizeImports<CR>", "organize imports")
-		nmap("<leader>ru", ":TypescriptRemoveUnused<CR>", "remove unused variables")
-	end
 end

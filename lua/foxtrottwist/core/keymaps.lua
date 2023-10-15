@@ -9,8 +9,6 @@ keymap.set({ "n", "v", "i" }, "<C-z>", "<Nop>", { silent = true })
 
 keymap.set("n", "<leader>w", ":w!<CR>", { silent = true }, { desc = "Fast saving." })
 
-keymap.set("i", "tn", "<ESC>", { desc = "ESC, Exit insert mode" })
-
 keymap.set({ "n", "v" }, "<leader>pp", "<C-^>", { desc = "Return to previously edited buffer." })
 
 keymap.set({ "n", "v" }, "<S-U>", "<C-R>", { desc = "More intuitive redo" })
