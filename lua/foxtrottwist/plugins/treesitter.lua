@@ -43,10 +43,7 @@ return {
 					"yaml",
 				},
 				-- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
-				context_commentstring = {
-					enable = true,
-					enable_autocmd = false,
-				},
+				require("ts_context_commentstring").setup({}),
 				-- auto install above language parsers
 				auto_install = true,
 			})

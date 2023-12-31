@@ -18,6 +18,8 @@ return {
 		-- import telescope-ui-select safely
 		local themes = require("telescope.themes")
 
+		local trouble = require("trouble.providers.telescope")
+
 		-- configure telescope
 		telescope.setup({
 			-- configure custom mappings
@@ -28,10 +30,12 @@ return {
 				path_display = { "truncate" },
 				mappings = {
 					i = {
+						["<A-t"] = trouble.open_with_trouble,
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
 					},
+					n = { ["<A-t>"] = trouble.open_with_trouble },
 				},
 			},
 			extensions = {

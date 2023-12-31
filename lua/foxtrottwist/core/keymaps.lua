@@ -53,6 +53,26 @@ keymap.set("n", "<leader>td", ":Gitsigns toggle_deleted<CR>", { desc = "Toggle d
 -- oil
 keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 
+-- trouble
+keymap.set("n", "<leader>xx", function()
+	require("trouble").toggle()
+end)
+keymap.set("n", "<leader>xw", function()
+	require("trouble").toggle("workspace_diagnostics")
+end)
+keymap.set("n", "<leader>xd", function()
+	require("trouble").toggle("document_diagnostics")
+end)
+keymap.set("n", "<leader>xq", function()
+	require("trouble").toggle("quickfix")
+end)
+keymap.set("n", "<leader>xl", function()
+	require("trouble").toggle("loclist")
+end)
+keymap.set("n", "sr", function()
+	require("trouble").toggle("lsp_references")
+end)
+
 -- undo-tree
 keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Open Undotree." })
 
