@@ -69,7 +69,7 @@ return {
 		lspconfig["graphql"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+			filetypes = { "graphql", "gql", "typescriptreact", "javascriptreact" },
 		})
 
 		lspconfig["html"].setup({
@@ -96,6 +96,13 @@ return {
 					},
 				},
 			},
+		})
+
+		lspconfig["sourcekit"].setup({
+			capabilities = capabilities,
+			cmd = { "sourcekit-lsp" },
+			on_attach = on_attach,
+			filetypes = { "swift", "c", "cpp", "objective-c", "objective-cpp" },
 		})
 
 		lspconfig.rust_analyzer.setup({
