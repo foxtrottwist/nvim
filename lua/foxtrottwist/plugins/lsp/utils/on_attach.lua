@@ -16,6 +16,6 @@ return function(_, bufnr)
 	nmap("<leader>ca", vim.lsp.buf.code_action, "see available code actions")
 	nmap("<leader>rn", vim.lsp.buf.rename, "smart rename")
 	nmap("K", vim.lsp.buf.hover, "show documentation for what is under cursor")
-	nmap("<leader>sd", "<cmd>Telescope lsp_document_symbols<CR>")
-	nmap("<leader>sw", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
+	nmap("<leader>sd", "<cmd>Telescope lsp_document_symbols<CR>", "Show current document symbols")
+	nmap("<leader>sw", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Show workspace symbols")
 end
