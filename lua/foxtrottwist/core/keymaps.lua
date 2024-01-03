@@ -41,6 +41,9 @@ keymap.set("n", "<leader>sx", ":close<CR>", { desc = "Close current split window
 -- Plugin Keybinds
 ----------------------
 
+-- vim-doge
+keymap.set("n", "<leader>gg", ":DogeGenerate<CR>", { desc = "Generate docs for supported languages." })
+
 -- gitsigns
 keymap.set(
 	"n",
