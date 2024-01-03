@@ -69,7 +69,7 @@ end)
 keymap.set("n", "<leader>xl", function()
 	require("trouble").toggle("loclist")
 end)
-keymap.set("n", "sr", function()
+keymap.set("n", "<leader>xr", function()
 	require("trouble").toggle("lsp_references")
 end)
 
