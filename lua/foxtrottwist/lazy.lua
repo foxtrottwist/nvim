@@ -18,9 +18,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("lazy").setup({ { import = "foxtrottwist.plugins" }, { import = "foxtrottwist.plugins.lsp" } }, {
-	install = {
-		colorscheme = { "nightfly" },
-	},
 	checker = {
 		enabled = true,
 		notify = false,
