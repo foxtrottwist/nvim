@@ -18,7 +18,7 @@ return {
 		-- import telescope-ui-select safely
 		local themes = require("telescope.themes")
 
-		local trouble = require("trouble.providers.telescope")
+		local trouble = require("trouble.sources.telescope")
 
 		-- configure telescope
 		telescope.setup({

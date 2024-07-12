@@ -7,7 +7,7 @@ local keymap = vim.keymap
 keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap.set({ "n", "v", "i" }, "<C-z>", "<Nop>", { silent = true })
 
-keymap.set("n", "<leader>w", ":w!<CR>", { silent = true }, { desc = "Fast saving." })
+keymap.set("n", "<leader>w", ":w!<CR>", { silent = true, desc = "Fast saving." })
 
 keymap.set({ "n", "v" }, "<leader>pp", "<C-^>", { desc = "Return to previously edited buffer." })
 
