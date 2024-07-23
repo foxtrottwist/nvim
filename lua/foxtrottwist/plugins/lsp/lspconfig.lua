@@ -70,6 +70,8 @@ return {
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss" },
 		})
 
+		lspconfig.gleam.setup({})
+
 		lspconfig["gopls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
