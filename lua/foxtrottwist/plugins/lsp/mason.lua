@@ -23,7 +23,7 @@ return {
 				"lua_ls",
 				"rust_analyzer",
 				"tailwindcss",
-				"tsserver",
+				"ts_ls",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
